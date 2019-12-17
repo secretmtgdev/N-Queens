@@ -1,7 +1,7 @@
 // declared up here to to js hoisting
 import Queen from './queen.js';
 import Position from './position.js';
-var QUEEN_COUNT = 12, board, queens = new Array(4);
+var QUEEN_COUNT = 4, board, queens = new Array(4);
 
 
 if(document.readyState === 'loading') {
@@ -49,10 +49,7 @@ async function solveQueens(count, row, board) {
     if(count === row) return true;
     for(let col = 0; col < board[row].length; col++) {
         let safe = true;
-        for(let i = 0; i < row; i++) {
-            if(!isSafe(board, row, col)) safe = false;
-            break;
-        }
+        if(!isSafe(board, row, col)) safe = false;
         if(safe) {
             await setKillZones(row, col, board);
             if(await solveQueens(count, row + 1, board)) return true;
