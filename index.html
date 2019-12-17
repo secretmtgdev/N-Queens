@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            main { 
+                margin: 0 auto;
+            }
+            
+            h2 {
+                text-align: center;
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: repeat(16, 1fr);
+            }
+
+            .cell {
+                height: 100px;
+                width: 100px;
+                border: 1px solid black;
+                box-sizing: border-box;
+            }
+
+            .open {
+                background-color: rgba(0, 255, 0, 0.6);
+            }
+
+            .closed {
+                background-color: rgba(0, 0, 255, 0.6);
+            }
+
+            .deadly {
+                background-color: rgba(255, 0, 0, 0.6);
+            }
+        </style>
+        <script defer type=module src=./util.js></script>
+    </head>
+    <body>
+        <main>
+            <section>
+                <h2>Current situation: <span id=situation></span></h2>
+            </section>
+
+            <!-- N Queen visualization-->
+            <section id="board">
+            </section>
+        </main>
+    </body>
+</html>
