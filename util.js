@@ -108,7 +108,7 @@ async function setKillZones(row, col, board) {
     }
 
     // set bl --> tr
-    let i = row, j = col;
+    let i = row-1, j = col+1;
     while(i >= 0 && j < board[row].length) {
         let deadAlready = document.querySelector(`[data-row-id='${i}'][data-col-id='${j}']`).className.includes('deadly')
         if(i !== row && j !== col && !deadAlready) {
@@ -121,7 +121,7 @@ async function setKillZones(row, col, board) {
         await sleep(2);
     }
 
-    i = row, j = col;
+    i = row+1, j = col-1;
     while(i < board.length && j >=0 ) {
         let deadAlready = document.querySelector(`[data-row-id='${i}'][data-col-id='${j}']`).className.includes('deadly')
         if(i !== row && j !== col && !deadAlready) {
@@ -135,7 +135,7 @@ async function setKillZones(row, col, board) {
     }
 
     // set tl --> br
-    i = row, j = col;
+    i = row-1, j = col-1;
     while(i >= 0 && j >=0) {
         let deadAlready = document.querySelector(`[data-row-id='${i}'][data-col-id='${j}']`).className.includes('deadly')
         if(i !== row && j !== col && !deadAlready) {
@@ -148,7 +148,7 @@ async function setKillZones(row, col, board) {
         await sleep(2);
     }
 
-    i = row, j = col;
+    i = row+1, j = col+1;
     while(i < board.length && j < board[row].length) {
         let deadAlready = document.querySelector(`[data-row-id='${i}'][data-col-id='${j}']`).className.includes('deadly')
         if(i !== row && j !== col && !deadAlready) {
